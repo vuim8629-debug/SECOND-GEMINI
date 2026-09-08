@@ -36,7 +36,7 @@
     style.dataset.sharedFooterStyle = 'true';
     style.textContent = footerStyles;
     document.head.appendChild(style);
-    document.querySelector('footer')?.remove();
+    if (document.querySelector('footer')) return;
     document.body.insertAdjacentHTML('beforeend', footerMarkup);
   };
 
