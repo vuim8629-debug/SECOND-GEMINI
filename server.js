@@ -31,6 +31,9 @@ app.get('/health', (req, res) => {
 // Serve the affiliate document explicitly so `/affiliate` and `/affiliate/`
 // never fall through to the root document.
 app.get(['/affiliate', '/affiliate/'], (req, res) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
   res.sendFile(path.join(__dirname, 'affiliate', 'index.html'));
 });
 
