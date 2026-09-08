@@ -1,0 +1,16 @@
+{
+  "name": "iakopa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "lint": "node --check server.js",
+    "build": "mkdir -p dist && cp -r index.html affiliate fonts assets public favicon.ico favicon.svg apple-touch-icon.png robots.txt _redirects dist/ 2>/dev/null || true",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "compression": "^1.8.1",
+    "express": "^4.21.2"
+  }
+}

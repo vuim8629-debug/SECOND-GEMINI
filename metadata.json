@@ -1,0 +1,8 @@
+{
+  "name": "IAKOPA | Premium Performance Sportswear",
+  "description": "Discover IAKOPA premium performance sportswear for the modern athlete. Technical apparel designed for training, movement and everyday life.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
