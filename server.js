@@ -16,7 +16,8 @@ app.use(compression());
 // Security & performance headers middleware
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  // The v0 Preview renders the app in a cross-origin iframe, so X-Frame-Options
+  // would make an otherwise healthy page appear blank in the preview.
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
   next();
@@ -25,6 +26,12 @@ app.use((req, res, next) => {
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
+// Serve the affiliate document explicitly so `/affiliate` and `/affiliate/`
+// never fall through to the root document.
+app.get(['/affiliate', '/affiliate/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'affiliate', 'index.html'));
 });
 
 // Long-term immutable caching for web fonts
