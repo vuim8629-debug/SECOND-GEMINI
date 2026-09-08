@@ -1431,19 +1431,11 @@ textarea{
     animation: none;
   }
 }
-  /* Homepage footer shared with the main site */
-  #site-footer{background:#D9DEE2;color:#111417;border-top:1px solid #B8C0C6;padding:54px 0 40px}
-  #site-footer .footergrid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
-  #site-footer .footerBrand{display:flex;flex-direction:column;gap:20px}
-  #site-footer .footerLogo img{display:block;width:120px;height:auto;filter:brightness(0);object-fit:contain}
-  #site-footer .note{max-width:44ch;color:#111417;font-size:16px;line-height:1.55}
-  #site-footer .footerlinks{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-  #site-footer a{display:block;color:#111417;font-size:12px;font-weight:800;line-height:1.45;text-decoration:none;white-space:nowrap}
-  #site-footer a:hover{opacity:.62}
-  @media(max-width:760px){
-    #site-footer{padding:44px 0 34px}
-    #site-footer .footergrid{grid-template-columns:1fr;gap:26px}
-    #site-footer .footerlinks{justify-content:flex-start;gap:14px 18px}
+  /* The affiliate page intentionally ends after the application section. */
+  footer,
+  .footer,
+  #site-footer{
+    display:none!important;
   }
 
   /* Desktop interaction polish — preserves the existing visual language */
@@ -1761,19 +1753,5 @@ textarea{
       });
     }
   })();
-  </script>
-  <footer id="site-footer">
-    <div class="shell footergrid">
-      <div class="footerBrand">
-        <div class="footerLogo"><img width="320" height="48" alt="IAKOPA logo" loading="lazy" decoding="async" src="https://i.ibb.co/6RbNDBXz/IAKOPA-logo-white.png"></div>
-        <div class="note">Human Performance Ecosystem. Performance apparel<br class="footerBreak"> and equipment for movement, training and focus.</div>
-      </div>
-      <nav class="footerlinks" aria-label="Footer navigation">
-        <a href="../index.html">Home</a>
-        <a href="#program">Program</a>
-        <a href="#apply">Apply</a>
-        <a href="mailto:contact@iakopa.com">contact@iakopa.com</a>
-      </nav>
-    </div>
-  </footer>
-  </body></html>
+</script>
+</body></html>
