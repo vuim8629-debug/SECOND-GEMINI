@@ -1507,25 +1507,28 @@ textarea{
   }
 }
 
-  /* Homepage footer shared with the main IAKOPA site */
-  #site-footer{background:#111417;color:#F8F9F9;padding:72px 0 84px}
-  #site-footer .footergrid{display:grid;grid-template-columns:1.4fr repeat(3,minmax(130px,1fr));gap:48px;align-items:start}
-  #site-footer .footerBrand{display:flex;flex-direction:column;gap:24px}
-  #site-footer .footerLogo img{display:block;width:160px;height:auto;object-fit:contain}
-  #site-footer .note{max-width:30ch;color:#A9B0B7;font-size:14px;line-height:1.55}
-  #site-footer h4{margin:0 0 18px;color:#F8F9F9;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-  #site-footer a,#site-footer .footerSoon{display:block;margin:0 0 12px;color:#A9B0B7;font-size:13px;line-height:1.45;text-decoration:none}
-  #site-footer a.footerWhatsapp,#site-footer a.footerTikTok{display:flex;align-items:center;gap:8px}
-  #site-footer a.footerWhatsapp svg{width:17px;height:17px;fill:currentColor}
-  #site-footer a.footerTikTok svg{width:16px;height:16px;fill:currentColor}
-  #site-footer a:hover{color:#F8F9F9}
-  #site-footer .footerSoon{color:#727980}
+  /* Affiliate footer matches the compact homepage footer */
+  #site-footer{background:#D9DEE2;color:#111417;padding:56px 0 40px}
+  #site-footer .footergrid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+  #site-footer .footerBrand{display:flex;flex-direction:column;gap:20px}
+  #site-footer .footerLogo img{display:block;width:120px;height:auto;filter:brightness(0);object-fit:contain}
+  #site-footer .note{max-width:44ch;color:#111417;font-size:16px;line-height:1.55}
+  #site-footer .footergrid>div:not(.footerBrand){display:flex;align-items:center;gap:18px}
+  #site-footer h4,#site-footer .footerSoon,#site-footer .footerWhatsapp,#site-footer .footerTikTok{display:none}
+  #site-footer a{display:block;margin:0;color:#111417;font-size:12px;font-weight:800;line-height:1.45;text-decoration:none;white-space:nowrap}
+  #site-footer .footergrid>div:nth-child(2) a:nth-of-type(1)::after{content:'Home';font-size:12px}
+  #site-footer .footergrid>div:nth-child(2) a:nth-of-type(2)::after{content:'Program';font-size:12px}
+  #site-footer .footergrid>div:nth-child(2) a:nth-of-type(3)::after{content:'Apply';font-size:12px}
+  #site-footer .footergrid>div:nth-child(2) a{font-size:0}
+  #site-footer .footergrid>div:nth-child(2) a::after{font-size:12px}
+  #site-footer .footergrid>div:nth-child(3) a:first-of-type{font-size:12px}
+  #site-footer .footergrid>div:nth-child(4){display:none}
+  #site-footer a:hover{opacity:.62}
   @media(max-width:760px){
-    #site-footer{padding:56px 0 64px}
-    #site-footer .footergrid{grid-template-columns:1fr 1fr;gap:34px 22px}
-    #site-footer .footerBrand{grid-column:1/-1}
+    #site-footer{padding:48px 0 36px}
+    #site-footer .footergrid{grid-template-columns:1fr;gap:28px}
+    #site-footer .footergrid>div:not(.footerBrand){justify-content:flex-start;flex-wrap:wrap;gap:14px 18px}
   }
-  @media(max-width:380px){#site-footer .footergrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
