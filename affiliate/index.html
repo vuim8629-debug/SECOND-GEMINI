@@ -390,7 +390,7 @@
 .affiliateGallery-item{
   position:relative;
   flex:0 0 clamp(300px,30vw,500px);
-  height:clamp(360px,39vw,620px);
+  height:clamp(180px,19.5vw,310px);
   margin:0;
   overflow:hidden;
   background:#3A2D28;
@@ -423,22 +423,9 @@
   .affiliateGallery-head p{font-size:17px;line-height:1.55}
   .affiliateGallery-track{animation-duration:34s}
   .affiliateGallery-set{gap:10px;padding-right:10px}
-  .affiliateGallery-item{flex-basis:76vw;height:112vw;max-height:560px}
+  .affiliateGallery-item{flex-basis:76vw;height:56vw;max-height:280px}
 }
 
-
-
-/* FULL-WIDTH AUTO GALLERY — reduce image/slider height by ~50% */
-.affiliateGallery-item{
-  height:clamp(180px,19.5vw,310px)!important;
-}
-
-@media(max-width:760px){
-  .affiliateGallery-item{
-    height:56vw!important;
-    max-height:280px!important;
-  }
-}
 
 
 
@@ -1393,6 +1380,45 @@ textarea{
     animation: none;
   }
 }
+/* Desktop interaction polish — preserves the existing visual language */
+.nav a,
+.herocta,
+.faqq,
+.apply button,
+.apply input,
+.apply select,
+.apply textarea{
+  transition:color .2s ease, background-color .2s ease, border-color .2s ease, opacity .2s ease, transform .2s ease;
+}
+
+.nav a:focus-visible,
+.herocta:focus-visible,
+.faqq:focus-visible,
+.apply button:focus-visible,
+.apply input:focus-visible,
+.apply select:focus-visible,
+.apply textarea:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:4px;
+}
+
+.herocta:hover{transform:translateY(-2px)}
+.faqq:hover{color:#111417}
+.apply input:hover,
+.apply select:hover,
+.apply textarea:hover{border-color:#8F989F}
+
+@media(prefers-reduced-motion:reduce){
+  .nav a,
+  .herocta,
+  .faqq,
+  .apply button,
+  .apply input,
+  .apply select,
+  .apply textarea{transition:none}
+  .herocta:hover{transform:none}
+}
+
 /* 01 / AFFILIATE PROGRAM — tighter editorial rhythm */
 #program .programIntro{
   margin-bottom:clamp(32px,4vw,52px)!important;
@@ -1537,8 +1563,13 @@ textarea{
     document.body.style.overflow = "";
   };
 
+  let navFrame = 0;
   const syncNav = () => {
-    if (nav) nav.classList.toggle("scrolled", window.scrollY > 18);
+    if (navFrame) return;
+    navFrame = requestAnimationFrame(() => {
+      navFrame = 0;
+      if (nav) nav.classList.toggle("scrolled", window.scrollY > 18);
+    });
   };
   syncNav();
   window.addEventListener("scroll", syncNav, { passive: true });
@@ -1569,9 +1600,14 @@ textarea{
       }
     });
 
+    let resizeFrame = 0;
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 760) closeMenu();
-    });
+      if (resizeFrame) return;
+      resizeFrame = requestAnimationFrame(() => {
+        resizeFrame = 0;
+        if (window.innerWidth > 760) closeMenu();
+      });
+    }, { passive: true });
   }
 
   document.querySelectorAll(".faqq").forEach(button => {
@@ -1590,7 +1626,7 @@ textarea{
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
 
     document.querySelectorAll("[data-reveal]").forEach(el => observer.observe(el));
   } else {
@@ -1632,7 +1668,7 @@ textarea{
       });
     }
 
-    if (btnWa) {
+    if (btnWa && form) {
       btnWa.addEventListener("click", (e) => {
         e.preventDefault();
         const d = Object.fromEntries(new FormData(form).entries());
