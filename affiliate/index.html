@@ -1625,7 +1625,6 @@ textarea{
           if (st) st.textContent = "Please fill in all required fields.";
           return;
         }
-        try { localStorage.setItem("iakopa_partner_application_draft", JSON.stringify(d)); } catch(err) {}
         const subj = "IAKOPA Partnership Application - " + (d.name || "");
         const bdy = getAppBody(d);
         if (st) st.textContent = "Opening your email app with the completed application…";
