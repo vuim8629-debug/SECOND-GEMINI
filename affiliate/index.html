@@ -329,137 +329,102 @@
 
 
 
-/* ==============================================================
-   FULL-WIDTH AUTO GALLERY — seamless image loop, no controls
-   ============================================================== */
-.affiliateGallery{
+  /* ==============================================================
+  VISUAL SYSTEM — cool editorial gallery with intentional scroll
+  ============================================================== */
+ .affiliateGallery{
   position:relative;
   overflow:hidden;
-  padding:clamp(82px,7vw,112px) 0 clamp(72px,6vw,96px);
-  background:#EBE3DB;
-  color:#3A2D28;
-}
+  padding:clamp(72px,8vw,128px) 0 clamp(72px,7vw,112px);
+  background:#EEF1F3;
+  color:#111417;
+  }
 
-.affiliateGallery-head{
+ .affiliateGallery-head{
   display:grid;
   grid-template-columns:minmax(0,.78fr) minmax(280px,.42fr);
-  gap:clamp(42px,7vw,110px);
+  gap:clamp(36px,7vw,112px);
   align-items:end;
-  margin-bottom:clamp(42px,5vw,70px);
-}
+  margin-bottom:clamp(28px,4vw,52px);
+  }
 
-.affiliateGallery-head h2{
+ .affiliateGallery-head h2{
   margin:18px 0 0;
   font-family:Inter,Arial,sans-serif;
   font-size:clamp(64px,7vw,118px);
   line-height:.86;
   font-weight:900;
   letter-spacing:-.067em;
-  color:#3A2D28;
-}
+  color:#111417;
+  }
 
-.affiliateGallery-head p{
+ .affiliateGallery-head p{
   margin:0;
   max-width:42ch;
   font-size:18px;
   line-height:1.58;
-  color:#5C4B44;
-}
+  color:#3F474E;
+  }
 
-.affiliateGallery-viewport{
+ .affiliateGallery-viewport{
   width:100%;
-  overflow:hidden;
-  mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);
-}
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:0 0 14px;
+  cursor:grab;
+  scrollbar-color:#8A949D transparent;
+  scrollbar-width:thin;
+  }
 
-.affiliateGallery-track{
+ .affiliateGallery-viewport:active{cursor:grabbing}
+ .affiliateGallery-viewport:focus-visible{outline:2px solid #111417;outline-offset:-2px}
+
+ .affiliateGallery-track{
   display:flex;
   width:max-content;
-  will-change:transform;
-  animation:affiliateGalleryLoop 44s linear infinite;
-}
+  }
 
-.affiliateGallery-set{
+ .affiliateGallery-set{
   display:flex;
   gap:14px;
   padding-right:14px;
   flex:0 0 auto;
-}
+  }
 
-.affiliateGallery-item{
+ .affiliateGallery-item{
   position:relative;
-  flex:0 0 clamp(300px,30vw,500px);
-  height:clamp(360px,39vw,620px);
+  flex:0 0 clamp(280px,27vw,440px);
+  height:clamp(300px,34vw,520px);
   margin:0;
   overflow:hidden;
-  background:#3A2D28;
-}
+  background:#D6DBDF;
+  }
 
-.affiliateGallery-item--wide{
-  flex-basis:clamp(460px,46vw,760px);
-}
+ .affiliateGallery-item--wide{flex-basis:clamp(440px,43vw,700px)}
+ .affiliateGallery-item--portrait{flex-basis:clamp(270px,24vw,390px)}
 
-.affiliateGallery-item--portrait{
-  flex-basis:clamp(290px,27vw,430px);
-}
-
-.affiliateGallery-item img{
+ .affiliateGallery-item img{
   width:100%;
   height:100%;
   display:block;
   object-fit:cover;
   object-position:center;
-  transform:scale(1.001);
-}
-
-.affiliateGallery-item:nth-child(4) img{
-  object-position:center top;
-}
-
-.affiliateGallery-item--portrait img{
-  object-position:center top;
-}
-
-@keyframes affiliateGalleryLoop{
-  from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(-50%,0,0)}
-}
-
-@media(max-width:760px){
-  .affiliateGallery{
-    padding:70px 0 64px;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1);
   }
 
-  .affiliateGallery-head{
-    grid-template-columns:1fr;
-    gap:26px;
-    margin-bottom:36px;
-  }
+ .affiliateGallery-item:hover img{transform:scale(1.035)}
+ .affiliateGallery-item:nth-child(4) img,
+ .affiliateGallery-item--portrait img{object-position:center top}
 
-  .affiliateGallery-head h2{
-    font-size:clamp(54px,16vw,78px);
-    line-height:.86;
-  }
-
-  .affiliateGallery-head p{
-    font-size:17px;
-    line-height:1.55;
-  }
-
-  .affiliateGallery-track{
-    animation-duration:34s;
-  }
-
-  .affiliateGallery-set{
-    gap:10px;
-    padding-right:10px;
-  }
-
-  .affiliateGallery-item{
-    flex-basis:76vw;
-    height:112vw;
-    max-height:560px;
+  @media(max-width:760px){
+ .affiliateGallery{padding:70px 0 64px}
+ .affiliateGallery-head{grid-template-columns:1fr;gap:26px;margin-bottom:30px}
+ .affiliateGallery-head h2{font-size:clamp(54px,16vw,78px);line-height:.86}
+ .affiliateGallery-head p{font-size:17px;line-height:1.55}
+ .affiliateGallery-set{gap:10px;padding-right:10px}
+ .affiliateGallery-item{flex-basis:76vw;height:92vw;max-height:560px}
+ .affiliateGallery-item--wide{flex-basis:112vw}
+ .affiliateGallery-item--portrait{flex-basis:70vw}
   }
 
   .affiliateGallery-item--wide{
@@ -1476,7 +1441,7 @@ textarea{
     <p>A continuous view of the IAKOPA world: movement, performance apparel, equipment and the people behind the brand.</p>
   </div>
 
-  <div class="affiliateGallery-viewport" aria-hidden="true">
+  <div class="affiliateGallery-viewport" tabindex="0" role="region" aria-label="Product photographs; scroll horizontally to explore">
     <div class="affiliateGallery-track">
       <div class="affiliateGallery-set">
         <figure class="affiliateGallery-item affiliateGallery-item--wide"><img src="https://i.ibb.co/S4Gqs76y/NEW-HERO-3-webp.webp" alt="" loading="lazy"></figure>
@@ -1490,17 +1455,6 @@ textarea{
         <figure class="affiliateGallery-item affiliateGallery-item--portrait"><img src="https://i.ibb.co/4ZkwL2MH/TITTO-PHOTO-PNG-DK-webp-v2.webp" alt="" loading="lazy"></figure>
       </div>
 
-      <div class="affiliateGallery-set" aria-hidden="true">
-        <figure class="affiliateGallery-item affiliateGallery-item--wide"><img src="https://i.ibb.co/S4Gqs76y/NEW-HERO-3-webp.webp" alt="" loading="lazy"></figure>
-        <figure class="affiliateGallery-item"><img src="https://i.ibb.co/60W4sXT7/IAKOPA-LONGLEEVE-0.webp" alt="" loading="lazy"></figure>
-        <figure class="affiliateGallery-item"><img src="https://i.ibb.co/3m2dMkfh/IAKOPA-LONGLEEVE-2.webp" alt="" loading="lazy"></figure>
-        <figure class="affiliateGallery-item"><img src="https://i.ibb.co/9FKtPnd/IAKOPA-LONGLEEVE-3.webp" alt="" loading="lazy"></figure>
-        <figure class="affiliateGallery-item"><img src="https://i.ibb.co/rRjNr7jz/03-BELT.png" alt="" loading="lazy"></figure>
-        <figure class="affiliateGallery-item"><img src="https://i.ibb.co/0zPtmg8/02-BELT.png" alt="" loading="lazy"></figure>
-        <figure class="affiliateGallery-item"><img src="https://i.ibb.co/PZ8Rw4Qn/01-BELT.png" alt="" loading="lazy"></figure>
-        <figure class="affiliateGallery-item"><img src="https://i.ibb.co/yFZmRYKc/sec-04-one-mor-webp.webp" alt="" loading="lazy"></figure>
-        <figure class="affiliateGallery-item affiliateGallery-item--portrait"><img src="https://i.ibb.co/4ZkwL2MH/TITTO-PHOTO-PNG-DK-webp-v2.webp" alt="" loading="lazy"></figure>
-      </div>
     </div>
   </div>
 </section>
