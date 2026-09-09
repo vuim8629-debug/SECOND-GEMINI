@@ -5,13 +5,15 @@
 .affiliatePageRoot h1,
 .affiliatePageRoot h2,
 .affiliatePageRoot h3,
+.affiliatePageRoot h4,
+.affiliatePageRoot h5,
+.affiliatePageRoot h6,
 .affiliatePageRoot .hero-title,
 .affiliatePageRoot .hero-heading {
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  font-family: Inter, Arial, sans-serif !important;
   font-weight: 900 !important;
-  letter-spacing: -0.03em !important;
-  text-transform: uppercase !important;
-  line-height: 0.95 !important;
+  letter-spacing: -0.075em !important;
+  font-style: normal !important;
 }
 .affiliatePageRoot .shell {
   width: min(1520px, calc(100% - 64px));
