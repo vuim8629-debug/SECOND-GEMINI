@@ -34,3 +34,11 @@ body {
   margin: 0;
   line-height: inherit;
 }
+
+h1, h2, h3, .hero-title, .hero-heading, .heroEditorialTitle {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
