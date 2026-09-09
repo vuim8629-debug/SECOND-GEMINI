@@ -74,7 +74,7 @@ export default function ApplicationSection() {
                 <div className="eyebrow text-[#2F363C] font-extrabold text-[10px] tracking-[0.18em] uppercase mb-4">
                   06 / APPLICATION
                 </div>
-                <h2 className="text-[clamp(52px,6vw,96px)] leading-[0.84] font-black tracking-[-0.065em] text-[#111417] my-5">
+                <h2 className="text-[clamp(52px,6vw,96px)] text-[#111417] my-5">
                   THINK YOU'RE<br />A GOOD FIT?
                 </h2>
                 <p className="text-[17px] leading-[1.6] text-[#343B41] max-w-[42ch]">
