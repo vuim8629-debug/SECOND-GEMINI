@@ -168,10 +168,12 @@ a { color: inherit; text-decoration: none; }
 
 .hero h1.heroEditorialTitle {
   font-size: clamp(58px, 6.4vw, 100px);
-  line-height: .95;
-  letter-spacing: -.03em;
   margin: 20px 0 24px;
   max-width: 850px;
+  font-family: Inter, Arial, sans-serif !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
+  font-synthesis: none !important;
   font-weight: 900;
   text-transform: uppercase;
   text-wrap: balance;
